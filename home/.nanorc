@@ -1,0 +1,134 @@
+set autoindent
+set backup
+set backupdir ~/.backups/
+set morespace
+set smarthome
+set const
+set nohelp
+set nowrap
+
+set smooth
+
+set tabsize 2
+#set tabstospaces
+
+## Color setup
+## Format:
+## syntax "short description" ["filename regex" ...]
+## color foreground,background "regex" ["regex"...]
+##
+## Legal colors: white, white, red, blue, green, yellow, magenta, cyan.
+## You may use the prefix "bright" to mean a stronger color highlight.
+##
+## To use multi-line regexes use the start="regex" end="regex" format.
+##
+## If your system supports transparency, not specifying a background
+## color will use a transparent color.  If you don't want this, be sure
+## to set the background color to white or white.
+##
+
+## Here is a short example for HTML
+syntax "HTML" "\.html$"
+color green start="<" end=">"
+color red "&[^; 	]*;"
+
+## Here is a short example for TeX files
+ syntax "TeX" "\.tex$"
+color green "\\.|\\[A-Za-z]*"
+color magenta "[{}]"
+color blue "%.*"
+
+## Here is an example for Java source
+##
+syntax "Java source" "\.java$"
+color green "\<(boolean|byte|char|double|float|int|long|new|short|this|transient|void)\>"
+color red "\<(break|case|catch|continue|default|do|else|finally|for|if|return|switch|throw|try|while)\>"
+color cyan "\<(abstract|class|extends|final|implements|import|instanceof|interface|native|package|private|protected|public|static|strictfp|super|synchronized|throws|volatile)\>"
+color red ""[^\"]*""
+color yellow "\<(true|false|null)\>"
+color blue "//.*"
+color blue start="/\*" end="\*/"
+color brightblue start="/\*\*" end="\*/"
+color brightgreen "[ 	]+$"
+
+## Here is an example for your .nanorc
+##
+syntax "nanorc" "[\.]*nanorc$"
+color white "^ *(set|unset).*$"
+color cyan "^ *(set|unset) (autoindent|backup|const|cut|fill|keypad|multibuffer|noconvert|nofollow|nohelp|nowrap|operatingdir|preserve|quotestr|regexp|smooth|speller|suspend|tabsize|tempfile|historylog|view)"
+color brightwhite "^ *syntax [^ ]*"
+color brightblue "^ *set\>" "^ *unset\>" "^ *syntax\>"
+color white "^ *color\>.*"
+color yellow "^ *color (bright)?(white|white|red|blue|green|yellow|magenta|cyan)\>"
+color magenta "^ *color\>"
+color green "^#.*$"
+
+syntax "ruby" ".*[\.]*rb$"
+# General
+color white ".+"
+# Operators
+color yellow "\<(::|\*\*|!|~|\*|/|%|\+|-|&|<<|>>|\|\^|>|>=|<|<=|<=>|\|\||!=|=~|!~|&&|\+=|-=|=|\.\.|\.\.\.|not|and|or)\>"
+# Keywords
+color yellow "\<(BEGIN|END|alias|and|begin|break|case|class|def|defined|do|else|elsif|end|ensure|for|if|in|module)\>"
+color yellow "\<(next|not|or|redo|rescue|retry|return|self|super|then|undef|unless|until|when|while|yield)\>"
+# false, nil, true
+color magenta "(false|nil|true)"
+# Above must not match 'nil?'
+color white "nil\?"
+# external stuff
+color green "(\<(load|require|include)|%q|%!|%Q|%r|%x)"
+# Iterators
+color green "\|\w+(,[ \t]*\w+)*\|"
+# Constants
+color yellow "[A-Z]\w*"
+# Variables starting with '$', '@' or '@@'
+color white "(\$|@@?)\w+\>"
+# Function names ending in '!' or '?'
+color white "\w+(!|\?)"
+# Symbols
+color red "([ \t]|^):(@|@@|\$)?\w+\>"
+# Strings
+color green "\"(\\.|[^\\\"])*\"|'(\\.|[^\\'])*'"
+# Backticks
+color green "`(\\.|[^\\\"])*`"
+# Regular expressions
+color green "/(\\.|[^\\/])*/[imox]*"
+# Escapes
+color red "\\[0-7][0-7][0-7]|\\x[0-9a-fA-F][0-9a-fA-F]|\\[abefnrs]|(\\c|\\C-|\\M-|\\M-\\C-)."
+# Expression substitution
+color red "#\{[^}]*\}|#[@$]\w+"
+# Simple comments
+color cyan         "#([^{$@].*)?$"
+# Shebang
+color cyan   "^#!.*"
+# Multiline comments
+color cyan         start="^=begin" end="^=end"
+
+## PHP
+##
+syntax "php" "\.php[2345s~]?$"
+#color brightblue "(.*)\("
+#color blue "\$[a-zA-Z_0-9$]*|[=!<>]"
+color blue "(var|class|function|echo|case|break|default|exit|switch|if|else|elseif|@|while)\s"
+color blue "if\("
+color cyan "[.,{}();]"
+color yellow "('.*')|(\".*\")"
+color green "(#.*|//.*)$"
+color green start="/\*" end="\*/"
+color blue "(<\?(php)?|\?>)"
+color white start="\?>" end="<\?(php)?"
+
+## C
+##
+syntax "c" "\.(c|cpp|h)$"
+color red "\<[A-Z_]{2,}\>" 
+color green "\<(float|double|char|int|short|long|enum|void|static|const|struct|union|typedef|extern|signed|unsigned|inline)\>"
+color brightyellow "\<(for|if|while|do|else|case|switch|goto|continue|break|return)\>"
+color brightcyan "^ *# *(define|undef|include|ifn?def|endif|elif|else|if)"
+color brightmagenta "'([^\]|(\\['abfnrtv\\]))'" "'\\(([0-7][0-7]?)|([0-3][0-7][0-7]))'" "'\\x[0-9A-Fa-f][0-9A-Fa-f]?'"
+color brightyellow "<[^= ]*>" ""(\\.|[^\"])*""
+color brightyellow start=""(\\.|[^\"])*\\ *$" end="^(\\.|[^\"])*""
+color brightwhite ";$"
+color yellow "(::|\*\*|!|~|\*|/|%|\+|-|&|<<|>>|\|\^|>|>=|<|<=|<=>|\|\||!=|=~|!~|&&|\+=|-=|=)"
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
