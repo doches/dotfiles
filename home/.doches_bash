@@ -20,6 +20,12 @@ alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
 # ls shortcuts
 alias 'lsa'='ls -alh'
 alias 'cls'='clear;ls'
+if [ `uname` == Darwin ]; then
+alias 'ls'='ls -G'
+fi
+if [ `uname` != Darwin ]; then
+alias 'ls'='ls --color'
+fi
 
 # Prompt
 export PS1='${debian_chroot:+($debian_chroot)}\u@\e[1;29m\h\[\e[m\]:\w$ '
