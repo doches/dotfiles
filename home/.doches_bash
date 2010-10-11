@@ -1,0 +1,50 @@
+# This is a sub-profile; include it in your actual profile by appending
+#
+# if [ -f ~/.doches_bash ]; then
+# . ~/.doches_bash
+# fi
+#
+# to .bash_profile or .profile
+
+# SSH aliases
+alias 'inf'='ssh s0897549@ssh.inf.ed.ac.uk'
+alias 'bunnocks'='ssh s0897549@bunnocks'
+alias 'gateside'='ssh s0897549@mcfadden'
+alias 'mcfadden'='ssh s0897549@129.215.90.2'
+alias 'tardis'='ssh ssh.tardis.ed.ac.uk'
+alias 'moose'='ssh s0897549@moose'
+
+# Open a SOCKS proxy SSH tunnel
+alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
+
+# ls shortcuts
+alias 'ls'='ls --color'
+alias 'lsa'='ls -alh'
+alias 'cls'='clear;ls'
+
+# Prompt
+export PS1='${debian_chroot:+($debian_chroot)}\u@\e[1;29m\h\[\e[m\]:\w$ '
+
+# Ruby
+export RUBYOPT="-rubygems -ryaml"
+export LANG=C
+alias 'ruby'='nice ruby'
+
+# C
+alias 'gcc'='gcc -std=c99'
+
+# Nano
+export EDITOR=nano
+alias 'nano'='nano --backupdir=~/.backups/'
+
+# Disable audible bell
+xset -b 2> /dev/null
+
+# git
+alias 'gitup'='git push origin master'
+alias 'gitdown'='git pull origin master'
+
+# Autojump
+if [ -f ~/.autojump.bash ]; then
+. ~/.autojump.bash
+fi
