@@ -38,8 +38,9 @@ export EDITOR=nano
 alias 'nano'='nano --backupdir=~/.backups/'
 
 # Disable audible bell
-# ...for some reason this lags like hell.
-# xset -b 2> /dev/null
+if [ `uname` != Darwin ]; then
+xset -b 2> /dev/null > /dev/null
+fi
 
 # git
 alias 'gitup'='git push origin master'
