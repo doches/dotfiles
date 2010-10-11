@@ -18,7 +18,6 @@ alias 'moose'='ssh s0897549@moose'
 alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
 
 # ls shortcuts
-alias 'ls'='ls --color'
 alias 'lsa'='ls -alh'
 alias 'cls'='clear;ls'
 
