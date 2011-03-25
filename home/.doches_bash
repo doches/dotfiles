@@ -50,6 +50,7 @@ fi
 # git
 alias 'gitup'='git push origin master'
 alias 'gitdown'='git pull origin master'
+alias 'git'='hub'
 
 # Autojump
 if [ -f ~/.autojump.bash ]; then
