@@ -57,3 +57,6 @@ alias 'git'='hub'
 if [ -f ~/.autojump.bash ]; then
 . ~/.autojump.bash
 fi
+
+# LaTeX
+export TEXINPUTS=":.//"
