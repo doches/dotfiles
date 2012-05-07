@@ -13,6 +13,7 @@ alias 'gateside'='ssh s0897549@mcfadden'
 alias 'mcfadden'='ssh s0897549@129.215.90.2'
 alias 'tardis'='ssh ssh.tardis.ed.ac.uk'
 alias 'moose'='ssh s0897549@moose'
+alias 'clov.es'='ssh root@clov.es'
 
 # Open a SOCKS proxy SSH tunnel
 alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'

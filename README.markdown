@@ -9,4 +9,4 @@ on a machine without them.
 Fortunately, there's [Homesick](http://github.com/technicalpickles/homesick), a tool for managing, porting,
 and sharing dotfiles. Collections of dotfiles in Homesick are called Castles; this one is mine. Hence the haiku.
 
-...and now you know.
+...and now you know. Carry on.
