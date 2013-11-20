@@ -17,7 +17,7 @@ alias 'clov.es'='ssh root@clov.es'
 
 # Open a SOCKS proxy SSH tunnel
 alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
-alias 'america'='ssh -D 8080 -f -C -q -N stavro.pacmansion.net'
+alias 'america'='ssh -D 8080 -f -C -q -N root@clov.es'
 
 # ls shortcuts
 alias 'lsa'='ls -alh'
