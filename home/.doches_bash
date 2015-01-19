@@ -18,6 +18,7 @@ alias 'clov.es'='ssh root@clov.es'
 # Open a SOCKS proxy SSH tunnel
 alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
 alias 'america'='ssh -D 8080 -f -C -q -N root@clov.es'
+alias 'europe'='ssh -D 8080 -f -C -q -N doches@erebus.feralhosting.com'
 
 # ls shortcuts
 alias 'lsa'='ls -alh'
@@ -30,10 +31,16 @@ alias 'ls'='ls --color'
 fi
 
 # Prompt
-export PS1='${debian_chroot:+($debian_chroot)}\u@\e[1;29m\h\[\e[m\]:\w$ '
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+}
+function proml {
+  export PS1='${debian_chroot:+($debian_chroot)}\u@\e[1;29m\h\[\e[m\]:\w\e[0;32m\]$(parse_git_branch)\e[0;0m\] '
+}
+proml
 
 # Ruby
-export RUBYOPT="-rubygems -ryaml"
+#export RUBYOPT="-rubygems -ryaml"
 export LANG=C
 alias 'ruby'='nice ruby'
 
@@ -49,15 +56,23 @@ if [ `uname` != Darwin ]; then
 xset -b 2> /dev/null > /dev/null
 fi
 
-# git
-alias 'gitup'='git push origin master'
-alias 'gitdown'='git pull origin master'
-alias 'git'='hub'
-
 # Autojump
-if [ -f ~/.autojump.bash ]; then
-. ~/.autojump.bash
-fi
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # LaTeX
 export TEXINPUTS=":.//"
+
+# Tree
+alias 'tree'='tree --charset utf-8'
+
+# Git (Palantir)
+alias hlog='git log --date-order --all --graph --format="%C(green)%H %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+
+# Set git autocompletion and PS1 integration
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+  . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+if [ -f /usr/local/etc/bash_completion.d.git-prompt.sh ]; then
+    . /usr/local/etc/bash_completion.d/git-prompt.sh
+fi
+GIT_PS1_SHOWDIRTYSTATE=true
