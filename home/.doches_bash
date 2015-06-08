@@ -7,18 +7,12 @@
 # to .bash_profile or .profile
 
 # SSH aliases
-alias 'inf'='ssh s0897549@ssh.inf.ed.ac.uk'
-alias 'bunnocks'='ssh s0897549@bunnocks'
-alias 'gateside'='ssh s0897549@mcfadden'
-alias 'mcfadden'='ssh s0897549@129.215.90.2'
-alias 'tardis'='ssh ssh.tardis.ed.ac.uk'
-alias 'moose'='ssh s0897549@moose'
 alias 'clov.es'='ssh root@clov.es'
 
 # Open a SOCKS proxy SSH tunnel
-alias 'tunnel'='ssh -D 8080 -f -C -q -N s0897549@ssh.inf.ed.ac.uk'
-alias 'america'='ssh -D 8080 -f -C -q -N root@clov.es'
-alias 'europe'='ssh -D 8080 -f -C -q -N doches@erebus.feralhosting.com'
+alias 'tunnel'='ssh -D 8080 -C -q s0897549@ssh.inf.ed.ac.uk'
+alias 'america'='ssh -D 8080 -C -q root@clov.es'
+alias 'europe'='ssh -D 8080 -C -q doches@erebus.feralhosting.com'
 
 # ls shortcuts
 alias 'lsa'='ls -alh'
@@ -76,3 +70,6 @@ if [ -f /usr/local/etc/bash_completion.d.git-prompt.sh ]; then
     . /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
+
+# Sublime Text
+export PATH=$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/
